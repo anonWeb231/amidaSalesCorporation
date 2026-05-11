@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amida Sales Corporation | Pump Specialists</title>
+    <style>
+        :root {
+            --primary-blue: #004a99;
+            --accent-orange: #f39c12;
+            --dark-text: #2c3e50;
+            --light-gray: #f8f9fa;
+        }
+
+        /* Base & Reset */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            color: var(--dark-text); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+        }
+
+        /* Enhanced Header Styling */
+        .header-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            background: white;
+        }
+
+        .top-bar {
+            background: var(--light-gray);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .top-bar-info span {
+            margin-right: 20px;
+            color: #555;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Slider Wrapper */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 450px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slides {
+            display: flex;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Gradient overlay for better text readability */
+        .slide::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .slide-content { 
+            position: relative; 
+            z-index: 5; 
+            max-width: 800px; 
+            padding: 20px; 
+        }
+
+        .slide-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            background: var(--accent-orange);
+            color: white;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            border: none;
+            font-size: 24px;
+            z-index: 10;
+            transition: background 0.3s;
+            border-radius: 4px;
+        }
+        
+        .prev:hover, .next:hover { background: var(--primary-blue); }
+        .next { right: 20px; }
+        .prev { left: 20px; }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        /* Products Grid */
+        .product-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .product-card-small {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .product-card-small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #dcdcdc;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 160px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+        }
+
+        .product-card-small h4 {
+            margin: 10px 0 5px;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        .product-card-small p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        .whatsapp-float::before {
+            content: "Chat with us";
+            position: absolute;
+            right: 75px;
+            background: #333;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-float:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer Styling */
+        .main-footer {
+            background: #1a252f;
+            color: #ecf0f1;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .top-bar-info span {
+                margin: 0 10px;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-wrapper">
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📞 +91 22 9876 5432</span>
+            <span>✉️ info@amidasales.com</span>
+        </div>
+        <div class="top-bar-social">
+            <span style="color: var(--primary-blue); font-weight: bold;">Mumbai's Pump Experts</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav>
+        <div class="logo">AMIDA <span style="color: var(--accent-orange);">SALES</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+        </div>
+    </nav>
+</header>
+
+<div class="slider-container">
+    <div class="slides" id="slideTrack">
+        <!-- Slide 1 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&w=1200')">
+            <div class="slide-content">
+                <h1>Premium Industrial Pumps</h1>
+                <p>Supplying world-class pumping technology for heavy industry.</p>
+                <a href="#about" class="cta-btn">Contact Sales</a>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200')">
+            <div class="slide-content">
+                <h1>Agricultural Excellence</h1>
+                <p>High-flow solutions for irrigation and farm management.</p>
+                <a href="#products" class="cta-btn">View Range</a>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200')">
+            <div class="slide-content">
+                <h1>Domestic Solutions</h1>
+                <p>Reliable water pressure systems for modern homes.</p>
+                <a href="#about" class="cta-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <button class="prev" id="prevBtn">&#10094;</button>
+    <button class="next" id="nextBtn">&#10095;</button>
+</div>
+
+<!-- Why Choose Us Section -->
+<section style="background-color: var(--light-gray); padding: 60px 0;">
+    <div class="container" style="padding: 0 5%;">
+        <h2 class="section-title">Why Choose Amida Sales?</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <div style="flex: 1; min-width: 280px; text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🏆</div>
+                <h4 style="color: var(--primary-blue); font-size: 1.2rem;">Authorized Dealer</h4>
+                <p style="color: #666;">Genuine products directly from leading manufacturers like Wilo and MHI.</p>
+            </div>
+            <div style="flex: 1; min-width: 280px; text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🔧</div>
+                <h4 style="color: var(--primary-blue); font-size: 1.2rem;">After-Sales Support</h4>
+                <p style="color: #666;">Comprehensive maintenance and spare parts availability for all pump models.</p>
+            </div>
+            <div style="flex: 1; min-width: 280px; text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="font-size: 3rem; margin-bottom: 15px;">⚡</div>
+                <h4 style="color: var(--primary-blue); font-size: 1.2rem;">Energy Efficient</h4>
+                <p style="color: #666;">Latest pumping technology designed to reduce your electricity costs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detailed Product Catalog -->
+<section id="products" class="container">
+    <h2 class="section-title">Our Complete Pump Range</h2>
+    
+    <div class="product-catalog-grid">
+        <!-- Category: Pressure Boosters & Circulators -->
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Star/DTC/RLTC</div>
+            <h4>Star/DTC/RLTC</h4>
+            <p>Hot Water Circulators & Control Panels</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: PB</div>
+            <h4>PB</h4>
+            <p>Inline Pressure Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: PW</div>
+            <h4>PW</h4>
+            <p>Single Phase Self Priming Pressure Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: FWJ</div>
+            <h4>FWJ</h4>
+            <p>Single Stage SS Body Self Priming Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: HWJ</div>
+            <h4>HWJ</h4>
+            <p>Single Stage SS Body Self Priming Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: HMHIL</div>
+            <h4>HMHIL</h4>
+            <p>Single Phase Multistage SS Impeller Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: FMHIL</div>
+            <h4>FMHIL</h4>
+            <p>Single Phase Multistage SS Impeller Booster</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: VMHIL/VMHI</div>
+            <h4>VMHIL/VMHI</h4>
+            <p>Multistage Booster System with VFD</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MHIL/MHI BC</div>
+            <h4>MHIL/MHI BC</h4>
+            <p>Multistage Pressure Booster System</p>
+        </div>
+
+        <!-- Category: Monobloc & Self-Priming -->
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WJ</div>
+            <h4>WJ</h4>
+            <p>SS Body Self Priming Monobloc Pump Set</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MHIL</div>
+            <h4>MHIL</h4>
+            <p>1 Ph / 3 Ph Multistage SS Impeller (Horizontal)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MHI</div>
+            <h4>MHI</h4>
+            <p>Three Phase Multistage SS Impeller (Horizontal)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MVI</div>
+            <h4>MVI</h4>
+            <p>Single Phase Multistage SS Impeller (Vertical)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MINI Crown/Prince</div>
+            <h4>MINI Crown/Prince/Royal</h4>
+            <p>Self Priming Monobloc Pump Set</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Wilo WP</div>
+            <h4>Wilo WP Mini Emperor</h4>
+            <p>Solution for your water transfer</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WHS V/M</div>
+            <h4>WHS V and WHS M</h4>
+            <p>Self-priming High suction pumpset</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WHS S/SN</div>
+            <h4>WHS S and WHS SN</h4>
+            <p>Self-priming High suction pumpset</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Wilo Kushal</div>
+            <h4>Wilo Kushal / Kushal S</h4>
+            <p>Monoblock pumpset options</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MPM</div>
+            <h4>MPM</h4>
+            <p>Monobloc Pump Set (CAT-A/B)</p>
+        </div>
+
+        <!-- Category: Submersible & Borewell -->
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: TWI5</div>
+            <h4>TWI5</h4>
+            <p>SS Submersible Multistage Pump Set</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WPO Raptor</div>
+            <h4>WPO Raptor</h4>
+            <p>Horizontal Open well Submersible (1 Phase)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW3</div>
+            <h4>WBW3</h4>
+            <p>Single Phase 75mm Borewell Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW4 Prathak</div>
+            <h4>WBW4 - 100 mm Prathak</h4>
+            <p>Water Filled Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBO4 Tejas</div>
+            <h4>WBO4 Tejas-Neo</h4>
+            <p>100mm Oil Filled Borehole Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW4 PLUS</div>
+            <h4>WBW4 - PLUS</h4>
+            <p>Single Phase 100mm Borewell Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW5</div>
+            <h4>WBW5</h4>
+            <p>Three Phase 125mm Borewell Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW6</div>
+            <h4>WBW6</h4>
+            <p>Single/Three Phase 150mm Borewell Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW7</div>
+            <h4>WBW7</h4>
+            <p>Three Phase 175mm Borewell Submersible</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: WBW8</div>
+            <h4>WBW8</h4>
+            <p>Three Phase 200mm Borewell Submersible</p>
+        </div>
+
+        <!-- Category: Drainage, Sewage & Waste -->
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: PD</div>
+            <h4>PD</h4>
+            <p>De-watering (Polypropylene) Pump</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Initial Drain</div>
+            <h4>Initial Drain & Waste</h4>
+            <p>Submersible (Polypropylene) Pump</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: FAS/FAC</div>
+            <h4>FAS/FAC</h4>
+            <p>Dewatering Pump Set (1 Ph / 3 Ph)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: STS</div>
+            <h4>STS</h4>
+            <p>Sewage Pump Set (1 Ph / 3 Ph)</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Rexa/MTC</div>
+            <h4>Rexa/MTC</h4>
+            <p>Cutter Pump Set</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: MNC</div>
+            <h4>MNC</h4>
+            <p>Self Priming Centrifugal Non-Clog Mud Pumps</p>
+        </div>
+        <div class="product-card-small">
+            <div class="img-placeholder">Image: Control Panel</div>
+            <h4>WBW4 Control Panel</h4>
+            <p>Dedicated panel for 100mm Borewell Sets</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="container">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 20px;">About Amida Sales Corporation</h2>
+            <p style="font-size: 1.1rem; color: #555;">With over two decades of experience, Amida Sales Corporation has been a leading provider of high-quality pumping solutions. We specialize in industrial, agricultural, and domestic pumps, ensuring reliability and efficiency for every client.</p>
+            
+            <div style="margin-top: 30px; line-height: 2; font-size: 1.05rem;">
+                <p><strong>📍 Address:</strong> 123 Industrial Estate, Apollo Bunder, Mumbai, Maharashtra 400001</p>
+                <p><strong>📞 Phone:</strong> +91 22 9876 5432</p>
+                <p><strong>✉️ Email:</strong> <a href="mailto:info@amidasales.com" style="color: var(--primary-blue); text-decoration: none;">info@amidasales.com</a></p>
+            </div>
+        </div>
+        
+        <!-- Google Map Integration -->
+        <div style="flex: 1; min-width: 320px; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.212332612716!2d72.8320921759556!3d18.92198405611417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c06aba5077%3A0x177b579d84c1ec7a!2sGateway%20of%20India%20Mumbai!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="container" style="padding: 0;">
+        <p>&copy; 2026 Amida Sales Corporation. All Rights Reserved.</p>
+        <p>Expert Pumping Solutions Since 2004</p>
+    </div>
+</footer>
+
+<!-- Professional SVG WhatsApp Button -->
+<a href="https://wa.me/919876543210?text=Hello%20Amida%20Sales,%20I%20am%20interested%20in%20your%20pumps." 
+   class="whatsapp-float" 
+   target="_blank" rel="noopener noreferrer">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+       <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.711.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.614-.087-.112-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.418-.099.824z"/>
+   </svg>
+</a>
+
+<!-- Scripts -->
+<script>
+    const track = document.getElementById('slideTrack');
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    let counter = 1;
+    const size = 100; // 100%
+
+    // 1. Clone first and last slides for the loop effect
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, slides[0]);
+
+    // Start at the actual first slide (not the clone)
+    track.style.transform = `translateX(${-size * counter}%)`;
+
+    // 2. Next Button
+    nextBtn.addEventListener('click', () => {
+        if (counter >= track.children.length - 1) return;
+        track.style.transition = "transform 0.5s ease-in-out";
+        counter++;
+        track.style.transform = `translateX(${-size * counter}%)`;
+    });
+
+    // 3. Prev Button
+    prevBtn.addEventListener('click', () => {
+        if (counter <= 0) return;
+        track.style.transition = "transform 0.5s ease-in-out";
+        counter--;
+        track.style.transform = `translateX(${-size * counter}%)`;
+    });
+
+    // 4. The Loop Magic (Resets position silently)
+    track.addEventListener('transitionend', () => {
+        if (track.children[counter] === firstClone) {
+            track.style.transition = "none";
+            counter = 1;
+            track.style.transform = `translateX(${-size * counter}%)`;
+        }
+        if (track.children[counter] === lastClone) {
+            track.style.transition = "none";
+            counter = track.children.length - 2;
+            track.style.transform = `translateX(${-size * counter}%)`;
+        }
+    });
+
+    // 5. Auto-play
+    let slideInterval = setInterval(() => { nextBtn.click(); }, 6000);
+
+    // Pause auto-play on hover
+    document.querySelector('.slider-container').addEventListener('mouseenter', () => clearInterval(slideInterval));
+    document.querySelector('.slider-container').addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => { nextBtn.click(); }, 6000);
+    });
+</script>
+
+</body>
+</html>
