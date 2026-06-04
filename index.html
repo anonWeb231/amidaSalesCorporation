@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amida Sales Corporation | Pump Specialists</title>
+    <title>Amida Sales Corporation | Pump Specialists | Pune</title>
     <style>
         :root {
             --primary-blue: #004a99;
@@ -209,18 +209,20 @@
             border-color: #dcdcdc;
         }
 
-        .img-placeholder {
+        .product-img {
             width: 100%;
             height: 160px;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.85rem;
+            object-fit: cover;
+            object-position: center;
             border-radius: 6px;
             margin-bottom: 15px;
-            border: 1px dashed #ccc;
+            display: block;
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card-small:hover .product-img {
+            transform: scale(1.04);
         }
 
         .product-card-small h4 {
@@ -326,17 +328,17 @@
     <!-- Top Contact Bar -->
     <div class="top-bar">
         <div class="top-bar-info">
-            <span>📞 +91 22 9876 5432</span>
-            <span>✉️ info@amidasales.com</span>
+            <span>📞 +91 88888 43908 / 78880 98719 / 92703 70234</span>
+            <span>✉️ info@amidasalescorporation.com</span>
         </div>
         <div class="top-bar-social">
-            <span style="color: var(--primary-blue); font-weight: bold;">Mumbai's Pump Experts</span>
+            <span style="color: var(--primary-blue); font-weight: bold;">Pune's Pump Experts</span>
         </div>
     </div>
 
     <!-- Main Navigation -->
     <nav>
-        <div class="logo">AMIDA <span style="color: var(--accent-orange);">SALES</span></div>
+        <div class="logo">AMIDA <span style="color: var(--accent-orange);">SALES</span> CORPORATION</div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#products">Products</a>
@@ -353,14 +355,6 @@
                 <h1>Premium Industrial Pumps</h1>
                 <p>Supplying world-class pumping technology for heavy industry.</p>
                 <a href="#about" class="cta-btn">Contact Sales</a>
-            </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200')">
-            <div class="slide-content">
-                <h1>Agricultural Excellence</h1>
-                <p>High-flow solutions for irrigation and farm management.</p>
-                <a href="#products" class="cta-btn">View Range</a>
             </div>
         </div>
         <!-- Slide 3 -->
@@ -380,12 +374,12 @@
 <!-- Why Choose Us Section -->
 <section style="background-color: var(--light-gray); padding: 60px 0;">
     <div class="container" style="padding: 0 5%;">
-        <h2 class="section-title">Why Choose Amida Sales?</h2>
+        <h2 class="section-title">Why Choose Amida Sales Corporation?</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <div style="flex: 1; min-width: 280px; text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                 <div style="font-size: 3rem; margin-bottom: 15px;">🏆</div>
                 <h4 style="color: var(--primary-blue); font-size: 1.2rem;">Authorized Dealer</h4>
-                <p style="color: #666;">Genuine products directly from leading manufacturers like Wilo and MHI.</p>
+                <p style="color: #666;">Genuine products directly from leading manufacturers like Wilo.</p>
             </div>
             <div style="flex: 1; min-width: 280px; text-align: center; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                 <div style="font-size: 3rem; margin-bottom: 15px;">🔧</div>
@@ -408,190 +402,139 @@
     <div class="product-catalog-grid">
         <!-- Category: Pressure Boosters & Circulators -->
         <div class="product-card-small">
-            <div class="img-placeholder">Image: Star/DTC/RLTC</div>
+            <img class="product-img" src="WiloHotwaterCirculation.jpg.jpeg" alt="Wilo Star/DTC/RLTC Hot Water Circulators">
             <h4>Star/DTC/RLTC</h4>
-            <p>Hot Water Circulators & Control Panels</p>
+            <p>Hot Water Circulators &amp; Control Panels</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: PB</div>
+            <img class="product-img" src="wiloPB.avif" alt="Wilo PB Inline Pressure Booster">
             <h4>PB</h4>
             <p>Inline Pressure Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: PW</div>
+            <img class="product-img" src="wiloPW.jpg" alt="Wilo PW Self Priming Pressure Booster">
             <h4>PW</h4>
             <p>Single Phase Self Priming Pressure Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: FWJ</div>
+            <img class="product-img" src="wiloFWJ.avif" alt="Wilo FWJ Self Priming Booster">
             <h4>FWJ</h4>
             <p>Single Stage SS Body Self Priming Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: HWJ</div>
             <h4>HWJ</h4>
             <p>Single Stage SS Body Self Priming Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: HMHIL</div>
+            <img class="product-img" src="wiloHMHIL.webp" alt="Wilo HMHIL Multistage Booster">
             <h4>HMHIL</h4>
             <p>Single Phase Multistage SS Impeller Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: FMHIL</div>
+            <img class="product-img" src="wiloFMHIL.webp" alt="Wilo FMHIL Multistage Booster">
             <h4>FMHIL</h4>
             <p>Single Phase Multistage SS Impeller Booster</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: VMHIL/VMHI</div>
+            <img class="product-img" src="wiloVMHIL.jpg" alt="Wilo VMHIL Multistage Booster with VFD">
             <h4>VMHIL/VMHI</h4>
             <p>Multistage Booster System with VFD</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MHIL/MHI BC</div>
+            <img class="product-img" src="wiloMHI-BC.webp" alt="Wilo MHIL/MHI BC Multistage Pressure Booster">
             <h4>MHIL/MHI BC</h4>
             <p>Multistage Pressure Booster System</p>
         </div>
 
         <!-- Category: Monobloc & Self-Priming -->
         <div class="product-card-small">
-            <div class="img-placeholder">Image: WJ</div>
+            <img class="product-img" src="wiloWJ.jpg" alt="Wilo WJ Monobloc Pump Set">
             <h4>WJ</h4>
             <p>SS Body Self Priming Monobloc Pump Set</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MHIL</div>
+            <img class="product-img" src="wiloMHIL.avif" alt="Wilo MHIL Multistage Horizontal">
             <h4>MHIL</h4>
             <p>1 Ph / 3 Ph Multistage SS Impeller (Horizontal)</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MHI</div>
+            <img class="product-img" src="wiloMHI.webp" alt="Wilo MHI Multistage Horizontal">
             <h4>MHI</h4>
             <p>Three Phase Multistage SS Impeller (Horizontal)</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MVI</div>
+            <img class="product-img" src="wiloMVI.avif" alt="Wilo MVI Vertical Multistage">
             <h4>MVI</h4>
             <p>Single Phase Multistage SS Impeller (Vertical)</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MINI Crown/Prince</div>
+            <img class="product-img" src="wiloMINI-CROWN.jpg" alt="Wilo MINI Crown/Prince/Royal Monobloc">
             <h4>MINI Crown/Prince/Royal</h4>
             <p>Self Priming Monobloc Pump Set</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: Wilo WP</div>
+            <img class="product-img" src="wiloMINI-EMPORER.avif" alt="Wilo WP Mini Emperor">
             <h4>Wilo WP Mini Emperor</h4>
             <p>Solution for your water transfer</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: WHS V/M</div>
+            <img class="product-img" src="wiloWHS.jpg" alt="Wilo WHS V and WHS M">
             <h4>WHS V and WHS M</h4>
             <p>Self-priming High suction pumpset</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: WHS S/SN</div>
+            <img class="product-img" src="wiloWHS.jpg" alt="Wilo WHS S and WHS SN">
             <h4>WHS S and WHS SN</h4>
             <p>Self-priming High suction pumpset</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: Wilo Kushal</div>
+            <img class="product-img" alt="Wilo Kushal / Kushal S Monoblock">
             <h4>Wilo Kushal / Kushal S</h4>
             <p>Monoblock pumpset options</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MPM</div>
+            <img class="product-img" src="wiloMPM.jpg" alt="Wilo MPM Monobloc Pump Set">
             <h4>MPM</h4>
             <p>Monobloc Pump Set (CAT-A/B)</p>
         </div>
 
         <!-- Category: Submersible & Borewell -->
         <div class="product-card-small">
-            <div class="img-placeholder">Image: TWI5</div>
+            <img class="product-img" src="wiloTWI5.jpg" alt="Wilo TWI5 SS Submersible Multistage Pump Set">
             <h4>TWI5</h4>
             <p>SS Submersible Multistage Pump Set</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: WPO Raptor</div>
+            <img class="product-img" src="WiloOpenwellSubmersible.png" alt="Wilo WPO Raptor Open Well Submersible">
             <h4>WPO Raptor</h4>
             <p>Horizontal Open well Submersible (1 Phase)</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW3</div>
-            <h4>WBW3</h4>
-            <p>Single Phase 75mm Borewell Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW4 Prathak</div>
-            <h4>WBW4 - 100 mm Prathak</h4>
-            <p>Water Filled Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBO4 Tejas</div>
-            <h4>WBO4 Tejas-Neo</h4>
-            <p>100mm Oil Filled Borehole Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW4 PLUS</div>
-            <h4>WBW4 - PLUS</h4>
-            <p>Single Phase 100mm Borewell Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW5</div>
-            <h4>WBW5</h4>
-            <p>Three Phase 125mm Borewell Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW6</div>
-            <h4>WBW6</h4>
-            <p>Single/Three Phase 150mm Borewell Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW7</div>
-            <h4>WBW7</h4>
-            <p>Three Phase 175mm Borewell Submersible</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: WBW8</div>
-            <h4>WBW8</h4>
-            <p>Three Phase 200mm Borewell Submersible</p>
         </div>
 
         <!-- Category: Drainage, Sewage & Waste -->
         <div class="product-card-small">
-            <div class="img-placeholder">Image: PD</div>
-            <h4>PD</h4>
-            <p>De-watering (Polypropylene) Pump</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: Initial Drain</div>
-            <h4>Initial Drain & Waste</h4>
+            <img class="product-img" src="wiloInitialDrain.jpg" alt="Wilo Initial Drain &amp; Waste Pump">
+            <h4>Initial Drain &amp; Waste</h4>
             <p>Submersible (Polypropylene) Pump</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: FAS/FAC</div>
+            <img class="product-img" src="wiloFAS-FAC.webp" alt="Wilo FAS/FAC Dewatering Pump">
             <h4>FAS/FAC</h4>
             <p>Dewatering Pump Set (1 Ph / 3 Ph)</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: STS</div>
+            <img class="product-img" src="wiloSTS.webp" alt="Wilo STS Sewage Pump Set">
             <h4>STS</h4>
             <p>Sewage Pump Set (1 Ph / 3 Ph)</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: Rexa/MTC</div>
+            <img class="product-img" alt="Wilo Rexa/MTC Cutter Pump">
             <h4>Rexa/MTC</h4>
             <p>Cutter Pump Set</p>
         </div>
         <div class="product-card-small">
-            <div class="img-placeholder">Image: MNC</div>
+            <img class="product-img" src="wiloMNC.jpeg" alt="Wilo MNC Non-Clog Mud Pump">
             <h4>MNC</h4>
             <p>Self Priming Centrifugal Non-Clog Mud Pumps</p>
-        </div>
-        <div class="product-card-small">
-            <div class="img-placeholder">Image: Control Panel</div>
-            <h4>WBW4 Control Panel</h4>
-            <p>Dedicated panel for 100mm Borewell Sets</p>
         </div>
     </div>
 </section>
@@ -600,19 +543,19 @@
     <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
         <div style="flex: 1; min-width: 300px;">
             <h2 style="color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 20px;">About Amida Sales Corporation</h2>
-            <p style="font-size: 1.1rem; color: #555;">With over two decades of experience, Amida Sales Corporation has been a leading provider of high-quality pumping solutions. We specialize in industrial, agricultural, and domestic pumps, ensuring reliability and efficiency for every client.</p>
+            <p style="font-size: 1.1rem; color: #555;">Since 2018, Amida Sales Corporation has been a trusted provider of high-quality pumping solutions in Pune. We specialize in industrial, agricultural, and domestic pumps, ensuring reliability and efficiency for every client.</p>
             
             <div style="margin-top: 30px; line-height: 2; font-size: 1.05rem;">
-                <p><strong>📍 Address:</strong> 123 Industrial Estate, Apollo Bunder, Mumbai, Maharashtra 400001</p>
-                <p><strong>📞 Phone:</strong> +91 22 9876 5432</p>
-                <p><strong>✉️ Email:</strong> <a href="mailto:info@amidasales.com" style="color: var(--primary-blue); text-decoration: none;">info@amidasales.com</a></p>
+                <p><strong>📍 Address:</strong> Shop No. U2, First Floor Shreeniwas, Greenland County, Manaji Nagar, Narhe, Pune, Maharashtra 411041</p>
+                <p><strong>📞 Phone:</strong> +91 88888 43908 / 78880 98719 / 92703 70234</p>
+                <p><strong>✉️ Email:</strong> <a href="mailto:info@amidasalescorporation.com" style="color: var(--primary-blue); text-decoration: none;">info@amidasalescorporation.com</a></p>
             </div>
         </div>
         
         <!-- Google Map Integration -->
         <div style="flex: 1; min-width: 320px; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.212332612716!2d72.8320921759556!3d18.92198405611417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c06aba5077%3A0x177b579d84c1ec7a!2sGateway%20of%20India%20Mumbai!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.663337723237!2d73.82413157599656!3d18.453588800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2950637d48d61%3A0xdf4c20deb3ab55aa!2sAmida%20Sales%20Corporation!5e0!3m2!1sen!2sin!4v1717500000000!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style="border:0;" 
@@ -628,12 +571,12 @@
 <footer class="main-footer">
     <div class="container" style="padding: 0;">
         <p>&copy; 2026 Amida Sales Corporation. All Rights Reserved.</p>
-        <p>Expert Pumping Solutions Since 2004</p>
+        <p>Expert Pumping Solutions Since 2018 &mdash; Pune, Maharashtra</p>
     </div>
 </footer>
 
 <!-- Professional SVG WhatsApp Button -->
-<a href="https://wa.me/919876543210?text=Hello%20Amida%20Sales,%20I%20am%20interested%20in%20your%20pumps." 
+<a href="https://wa.me/918888843908?text=Hello%20Amida%20Sales%20Corporation,%20I%20am%20interested%20in%20your%20pumps." 
    class="whatsapp-float" 
    target="_blank" rel="noopener noreferrer">
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
